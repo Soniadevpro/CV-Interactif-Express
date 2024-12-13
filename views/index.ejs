@@ -1,0 +1,161 @@
+<%- include('partials/head') %>
+<body>
+    <header>
+        <h1>Votre Nom</h1>
+        <p>Développeur Web Full Stack</p>
+        <div class="contact-info">
+            <a href="mailto:votre.email@exemple.com">votre.email@exemple.com</a>
+            <a href="https://www.linkedin.com/in/votrenom" target="_blank">LinkedIn</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>À Propos</h2>
+            <p>Conceptrice d'application en formation, avec des
+                compétences en développement web et mobile et en
+                design UX/UI. Passionnée par les technologies
+                innovantes..
+                Je recherche une alternance pour la rentrée de 2025
+                pour le titre d’Architecte logiciel (bac+5). Pour un
+                rythme d’un jour en formation par semaine à la
+                convenance de l’entreprise</p>
+                <h2>Skills</h2>
+                <h3>Compétences techniques :</h3>
+                <ul>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>Node.js</li>
+                    <li>Express</li>
+                    <li>MongoDB</li>
+                    <li>Python</li>
+                    <li>Django</li>
+                    <li>Git</li>
+                    <li>GitHub</li>
+                    <li>Heroku</li>
+                    <li>Netlify</li>
+                    <li>Adobe XD</li>
+                    <li>Figma</li>
+                </ul>
+                <h3>Compétences générales :</h3>
+                <ul>
+                    <li>Créativité</li>
+                    <li>Esprit d'équipe</li>
+                    <li>Organisation</li>
+                    <li>Adaptabilité</li>
+                    <li>Autonomie</li>
+                    <li>Curiosité</li>
+                  
+        </section>
+
+        <section id="experience">
+            <h2>Expérience Professionnelle</h2>
+            <div class="job">
+                <h3>Formation Développeur Web
+                    GRETA du Val d'Oise - En cours
+                    Titre RNCP de Niveau 6 : Concepteur d’application
+                    web
+                    </h3>
+                <p>Projet : Développement d'une application de tournoi
+                    de jeux vidéos (React & Django)
+                    </p>
+                <h3>Intégration/Développement Web
+                    Titre RNCP de Niveau 5 - Openclassrooms
+                    </h3>
+                <p>Création de mon portfolio et réalisation de projets
+                    en React, Redux, Figma, et SASS.
+                    </p>
+                <h3>Leroy Merlin – Service Client
+                    </h3>
+                <p>Accueil & Gestion de Commandes
+                    Accueil des clients et gestion du standard téléphonique
+                    Traitement des bons de commande et suivi des dossiers
+                    clients
+                    Assistance en cour des matériaux, conseil et orientation
+                    des clients.
+                    </p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projets</h2>
+            <div class="project">
+                <h3>Portfolio Personnel :</h3>
+                <p>Créé dans le cadre de ma formation, présentant
+                    des projets de développement web.</p>
+                <h3>Application PlayZone de tournoi de jeux vidéos :</h3>
+                <p>Application en cours de développement utilisant
+                    React pour le front-end et Django pour le backend, permettant d’organiser son tournoi en local
+                    ou/et en ligne. Elle permettra aux joueurs de s’y
+                    inscrire et aux visiteurs de suivre les tournois et les
+                    résultats en direct.</p>
+            </div>
+            
+        </section>
+
+        <section id="interests">
+            <h2>Centres d'Intérêts</h2>
+            <ul>
+
+                <li>Randonnée</li>
+                <li>Développement personnel</li>
+                <li>Dessin</li>
+                <li>Lecture</li>
+            </ul>
+        </section>
+<div class="container-form-tele">
+    <section id="contact">
+        <h2>Contactez-moi</h2>
+        
+        <% if (errors && errors.length > 0) { %>
+            <div class="error-messages">
+                <h3>Erreurs dans le formulaire :</h3>
+                <ul>
+                    <% errors.forEach(function(error) { %>
+                        <li><%= error %></li>
+                    <% }); %>
+                </ul>
+            </div>
+        <% } %>
+        <% if (successMessage) { %>
+            <div class="success-message">
+                <p><%= successMessage %></p>
+            </div>
+        <% } %>
+    
+        <form action="/contact" method="POST">
+            <input 
+                type="text" 
+                name="nom" 
+                placeholder="Votre Nom" 
+                required 
+                value="<%= formData.nom %>"
+            >
+            <input 
+                type="email" 
+                name="email" 
+                placeholder="Votre Email" 
+                required
+                value="<%= formData.email %>"
+            >
+            <textarea 
+                name="message" 
+                placeholder="Votre Message" 
+                required
+            ><%= formData.message %></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+    
+    
+    <a href="/download-cv" target="_blank" class="download-btn">Télécharger mon CV complet</a>
+
+</div>
+    </main>
+        <script src="/js/script.js">
+     
+        </script>
+</body>
+</html>
